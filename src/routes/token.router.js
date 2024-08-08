@@ -7,10 +7,10 @@ const router = require("express").Router();
 
 const token = require("../controllers/token.controller");
 
-// const { isAdmin } = require('../middlewares/permissions')
+const { isAdmin } = require('../middlewares/permissions')// içiçe middleware olduğundan destruc ile alındı.
 
 /* ------------------------------------------------------- */
-
+//?genel yazım hepsinin önğne isAdmin kontrolü yazıldı uzun yazım
 // router.route("/")
 //     .get(isAdmin, token.list)
 //     .post(isAdmin, token.create);
@@ -23,7 +23,7 @@ const token = require("../controllers/token.controller");
 
 /* ------------------------------------------------------- */
 
-// router.use(isAdmin)
+ router.use(isAdmin) // hepsine ortak olarak isAdmin' i tanımlamış olduk bu sayede aşağıdaki tüm roterlarada isAdmin kont yapıyor
 
 router.route("/")
   .get(token.list)

@@ -5,7 +5,7 @@
 // Permission Control Middleware:
 
 module.exports = {
-
+// önce login mi ona bakıyoruz.Bunu hangi rootera koymulsam kullanıcı login ise erişebilecek. 
     isLogin: (req, res, next) => {
 
         if (req.user && req.user.isActive) {
@@ -17,7 +17,7 @@ module.exports = {
             throw new Error('NoPermission: You must login.')
         }
     },
-
+// bazen de admin olması gereken yerler olabilir.Ör.silmek gibi
     isAdmin: (req, res, next) => {
 
         if (req.user && req.user.isActive && req.user.isAdmin) {
@@ -30,7 +30,7 @@ module.exports = {
         }
 
     },
-
+//Lead departmana ait olduğundan önce departman kontrolu yapılıyor.Birde admin tam yetkili olduğundan burada admin de olsa yetkili olacağından onu da sorguluyoruz. 
     isAdminOrLead: (req, res, next) => {
 
         const departmentId = req.params?.id
