@@ -39,30 +39,31 @@ app.use(
 
 /* ------------------------------------------------------- */
 // //?DOCUMENTAtioN
-// //npm i swagger-autogen-->JSON oluşturur
-// //npm i swagger-ui-express
-// //npm i redoc-express
-// //JSON GÖRÜNÜM 
+//npm i swagger-autogen-->//!JSON oluşturur
+// npm i swagger-ui-express
+// npm i redoc-express
+// JSON GÖRÜNÜM 
 // app.use('/document/json',(req,res)=>{
-//     res.sendFile('swagger.json',{root:'.'})// sendF,le dosyayı ekranda görüntüleme demek. root . da bu methodun zorunlusu
+//     res.sendFile('swagger.json',{root:'.'})// send,le dosyayı ekranda görüntüleme demek. root . da bu methodun zorunlusu
 // })
-// //SWAGGER İÇİN:
-// // öncelikle indirdiğimiz ui modulü çağırıyoruz
+// SWAGGER İÇİN:
+//  öncelikle indirdiğimiz ui modulü çağırıyoruz
 // const swaggerUi=require('swagger-ui-express')
-// // ikinci olarak da göstereceğimiz swagger.json dosyasını çağırıyoruz
+//  ikinci olarak da göstereceğimiz swagger.json dosyasını çağırıyoruz
 // const swaggerJson=require('./swagger.json')
-// // swaggeri kullanma
+//  swaggeri kullanma
 
 // app.use('/documents/swagger', swaggerUi.serve, swaggerUi.setup(swaggerJson, { swaggerOptions: { persistAuthorization: true } }))
-// // swaggerUi.serve: swaggerdeki css ve ilgili js kodlarını hazırlayan bir middleware
-// // swaggerUi.setup(swaggerJson :esas kısım, jsın dosyayı swagger olarak yazdıracak
+//  swaggerUi.serve: swaggerdeki css ve ilgili js kodlarını hazırlayan bir middleware
+//  swaggerUi.setup(swaggerJson :esas kısım, jsın dosyayı swagger olarak yazdıracak
 // //?{ swaggerOptions: { persistAuthorization: true } } autorizedaki token i kullanabilmemiz için ikinci parametreye yazmamız gereken ayar. Tokenin hafızada kalmasını sağlıyor. 
 
 
 // /* ------------------------------------------------------- */
 // /* ------------------------------------------------------- */
 // //?MORGAN
-// app.use(require('./src/middlewares/logger'))// log tuttam func yazdığım yer
+// bir mw olduğundan appuse içindeçaığırıyoruz. 
+ app.use(require('./src/middlewares/logger'))// log tuttam func yazdığım yer
 // /* ------------------------------------------------------- */
 
 //?Middlewares
