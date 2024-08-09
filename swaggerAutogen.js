@@ -63,9 +63,9 @@ const document = {
     security: [// yukarıdaki güvenloği kullan 
         { Token: [] }
     ],
-    // Model Definitions:
+    // Model Definitions:// bu kısma modelleri yazmalıyız. 
     definitions: {// token model gizlidir burada yer almaz!
-        "Department": require('./src/models/department.model').schema.obj,
+        "Department": require('./src/models/department.model').schema.obj, //sonunne schema.obj yazınca kısa yazaıp istediğimiz sonuç oluyor.
         "Personnel": require('./src/models/personnel.model').schema.obj,
     }
 }
