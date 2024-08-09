@@ -56,18 +56,20 @@ app.use(
 // app.use('/documents/swagger', swaggerUi.serve, swaggerUi.setup(swaggerJson, { swaggerOptions: { persistAuthorization: true } }))
 //  swaggerUi.serve: swaggerdeki css ve ilgili js kodlarını hazırlayan bir middleware
 //  swaggerUi.setup(swaggerJson :esas kısım, jsın dosyayı swagger olarak yazdıracak
-// //?{ swaggerOptions: { persistAuthorization: true } } autorizedaki token i kullanabilmemiz için ikinci parametreye yazmamız gereken ayar. Tokenin hafızada kalmasını sağlıyor. 
-//JSON GÖRÜNTÜLEME 
+// //*{ swaggerOptions: { persistAuthorization: true } } autorizedaki token i kullanabilmemiz için ikinci parametreye yazmamız gereken ayar. Tokenin hafızada kalmasını sağlıyor. 
+//?JSON GÖRÜNTÜLEME 
 app.use('/documents/json',(req,res)=>{
     res.sendFile('swagger.json',{root:'.'})// sendFile dosyayı ekranda görüntüleme demek. root . da bu methodun zorunlusu
 })
-//SWAGGER GÖNTÜLEME
+//?SWAGGER GÖNTÜLEME
 //  öncelikle indirdiğimiz ui modulü çağırıyoruz
 const swaggerUi=require('swagger-ui-express')
 //  ikinci olarak da göstereceğimiz swagger.json dosyasını çağırıyoruz
 const swaggerJson=require('./swagger.json')
 app.use('/documents/swagger', swaggerUi.serve, swaggerUi.setup(swaggerJson, { swaggerOptions: { persistAuthorization: true } }))
-
+//? REDOC:
+const redoc = require('redoc-express')
+app.use('/documents/redoc', redoc({ specUrl: '/documents/json', title: 'Redoc UI' }))// reducta sekmede undefind yazmamaısı için title i ekledik
 
 // /* ------------------------------------------------------- */
 // /* ------------------------------------------------------- */
