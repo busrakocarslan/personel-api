@@ -15,11 +15,11 @@
 // app.use(morgan('combined'))
 
 //Custom Log:
-app.use(
-  morgan(
-    'TIME=":date[iso]" - URL=":url" - Method=":method" - IP=":remote-addr" - Ref=":referrer" - Status=":status" - Sign=":user-agent" (:response-time[digits] ms)'
-  )
-);
+// app.use(
+//   morgan(
+//     'TIME=":date[iso]" - URL=":url" - Method=":method" - IP=":remote-addr" - Ref=":referrer" - Status=":status" - Sign=":user-agent" (:response-time[digits] ms)'
+//   )
+// );
 
 //? custom olarak kendimiz düzenlemek istersek örnek bu dökümandan bak!
 
