@@ -30,6 +30,11 @@
 // morgen defaul olarak consola  yazar. Dosyaya yazması gerek.
 const morgan = require("morgan");
 const fs = require("node:fs"); //  file system modulü, dahili modul tuttuğumuz log kayıtlarını dosyalayacak
+const path = "./logs";
+
+if (!fs.existsSync(path)){
+    fs.mkdirSync(path);
+}
 const now = new Date();
 const today = now.toISOString().split("T")[0];
 // const now=new Date()
